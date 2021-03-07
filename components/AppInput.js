@@ -1,22 +1,19 @@
 import React from "react";
 import { View, StyleSheet, Text, TextInput } from "react-native";
+import ErrorText from "./ErrorText";
 
-import { MaterialCommunityIcons } from "@expo/vector-icons";
-
-function AppInput({ title, ...otherProps }) {
+function AppInput({ title, error, showError = false, ...otherProps }) {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{title}</Text>
-      <View style={{ flexDirection: "row" }}>
+      <View>
         <TextInput
           {...otherProps}
           style={styles.input}
           autoCapitalize="none"
           autoCorrect={false}
         />
-        {title == "Password" && (
-          <MaterialCommunityIcons name="eye-outline" size={24} color="black" />
-        )}
+        {showError && <ErrorText error={error} />}
       </View>
     </View>
   );
@@ -28,7 +25,6 @@ const styles = StyleSheet.create({
   input: {
     borderBottomWidth: 1,
     borderBottomColor: "darkgrey",
-    flex: 1,
   },
   title: {
     fontSize: 20,
