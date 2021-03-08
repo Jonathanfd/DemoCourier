@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
   container: {},
   error: {
     color: "red",
-    fontSize: 12,
+    fontSize: 15,
   },
 });
 export default ErrorText;

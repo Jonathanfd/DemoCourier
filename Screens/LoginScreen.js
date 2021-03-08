@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { View, StyleSheet, Text, Image, ImageBackground } from "react-native";
 import AppLogin from "../components/AppLogin";
 import postLogin from "../api/loginAPI";
-import ErrorText from "../components/ErrorText";
 
 function LoginScreen({ navigation }) {
   const [username, setUsername] = useState("");
@@ -31,7 +30,7 @@ function LoginScreen({ navigation }) {
       const { success, exception } = await postLogin(username.trim(), password);
 
       if (success) {
-        navigation.navigate("Packages");
+        navigation.navigate("Packages", { username });
         cleanFields();
       } else {
         alert(exception);

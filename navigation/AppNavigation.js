@@ -5,12 +5,8 @@ import PackageScreen from "../Screens/PackageScreen";
 
 const Stack = createStackNavigator();
 const StackNavigator = () => (
-  <Stack.Navigator>
-    <Stack.Screen
-      name="Login"
-      component={LoginScreen}
-      options={{ headerShown: false }}
-    />
+  <Stack.Navigator screenOptions={{ headerShown: false }}>
+    <Stack.Screen name="Login" component={LoginScreen} />
     <Stack.Screen name="Packages" component={PackageScreen} />
   </Stack.Navigator>
 );
