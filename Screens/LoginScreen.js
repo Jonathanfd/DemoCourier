@@ -2,12 +2,14 @@ import React, { useState } from "react";
 import { View, StyleSheet, Text, Image, ImageBackground } from "react-native";
 import AppLogin from "../components/AppLogin";
 import postLogin from "../api/loginAPI";
+import getPackages from "../api/getPackagesAPI";
 
 function LoginScreen({ navigation }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [showError, setShowError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  const packages = getPackages(username);
 
   const cleanFields = () => {
     setUsername("");
@@ -30,7 +32,7 @@ function LoginScreen({ navigation }) {
       const { success, exception } = await postLogin(username.trim(), password);
 
       if (success) {
-        navigation.navigate("Packages", { username });
+        navigation.navigate("Packages", { packages });
         cleanFields();
       } else {
         alert(exception);
