@@ -1,17 +1,19 @@
 import React from "react";
-import { View, StyleSheet, Image, Text } from "react-native";
+import { View, StyleSheet, Image, Text, TouchableOpacity } from "react-native";
 
 function PackageCard({ description, status, date, icon }) {
   return (
-    <View style={styles.container}>
-      <View style={styles.imageContainer}>
-        <Image source={icon} style={styles.image} />
-      </View>
-      <View style={styles.packageInfo}>
-        <Text style={styles.description}>{description}</Text>
-        <Text style={styles.status}>{status}</Text>
-        <Text style={styles.status}>{date}</Text>
-      </View>
+    <View>
+      <TouchableOpacity style={styles.container}>
+        <View style={styles.imageContainer}>
+          <Image source={icon} style={styles.image} />
+        </View>
+        <View style={styles.packageInfo}>
+          <Text style={styles.description}>{description}</Text>
+          <Text style={styles.status}>{status}</Text>
+          <Text style={styles.status}>{date}</Text>
+        </View>
+      </TouchableOpacity>
     </View>
   );
 }
