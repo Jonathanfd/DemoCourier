@@ -8,9 +8,7 @@ function getPackages(username) {
 
   useEffect(() => {
     getPackagesAPI();
-    () => {
-      setPackages([]);
-    };
+    () => setPackages([]);
   }, []);
 
   const getPackagesAPI = async () => {

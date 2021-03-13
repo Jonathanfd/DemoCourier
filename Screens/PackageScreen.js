@@ -1,5 +1,5 @@
 import React from "react";
-import { View, StyleSheet, Text, FlatList } from "react-native";
+import { View, StyleSheet, FlatList } from "react-native";
 
 import AppHeader from "../components/AppHeader";
 import PackageCard from "../components/PackageCard";

@@ -33,7 +33,11 @@ function LoginScreen({ navigation }) {
       const { success, exception } = await postLogin(username.trim(), password);
 
       if (success) {
-        navigation.navigate("Packages", { packages });
+        global.packagesQuantity = packages.length; //Global variable to save the package quantity and show it as a badge of the footer
+        navigation.navigate("Home", {
+          screen: "Packages",
+          params: { packages },
+        });
         cleanFields();
       } else {
         alert(exception);
