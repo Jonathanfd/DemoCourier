@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import { View, StyleSheet, Text } from "react-native";
 
-function ErrorText({ error }) {
+import { ErrorMessageContext } from "../context/AppContext";
+
+function ErrorText() {
+  const errorMessage = useContext(ErrorMessageContext);
   return (
     <View style={styles.container}>
-      <Text style={styles.error}>{error}</Text>
+      <Text style={styles.error}>{errorMessage}</Text>
     </View>
   );
 }

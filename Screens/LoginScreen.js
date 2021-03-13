@@ -3,6 +3,7 @@ import { View, StyleSheet, Text, Image, ImageBackground } from "react-native";
 import AppLogin from "../components/AppLogin";
 import postLogin from "../api/loginAPI";
 import getPackages from "../api/getPackagesAPI";
+import { ErrorMessageContext, LoginContext } from "../context/AppContext";
 
 function LoginScreen({ navigation }) {
   const [username, setUsername] = useState("");
@@ -56,17 +57,17 @@ function LoginScreen({ navigation }) {
         />
         <Text style={styles.appName}>Demo Courier</Text>
       </View>
-      <AppLogin
-        onChangeUser={(username) => setUsername(username)}
-        onChangePassword={(password) => setPassword(password)}
-        username={username}
-        password={password}
-        showError={showError}
-        error={errorMessage}
-        login={() => {
-          handleLogin();
-        }}
-      />
+      <LoginContext.Provider value={handleLogin}>
+        <ErrorMessageContext.Provider value={errorMessage}>
+          <AppLogin
+            onChangeUser={(username) => setUsername(username)}
+            onChangePassword={(password) => setPassword(password)}
+            username={username}
+            password={password}
+            showError={showError}
+          />
+        </ErrorMessageContext.Provider>
+      </LoginContext.Provider>
     </ImageBackground>
   );
 }

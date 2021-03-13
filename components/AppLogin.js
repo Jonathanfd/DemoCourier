@@ -4,13 +4,11 @@ import AppInput from "./AppInput";
 import AppButton from "./AppButton";
 
 function AppLogin({
-  login,
   register,
   onChangeUser,
   onChangePassword,
   username,
   password,
-  error,
   showError,
 }) {
   return (
@@ -20,7 +18,6 @@ function AppLogin({
         placeholder="Username"
         onChangeText={onChangeUser}
         value={username}
-        error={error}
         showError={showError}
       />
       <AppInput
@@ -29,11 +26,10 @@ function AppLogin({
         secureTextEntry
         onChangeText={onChangePassword}
         value={password}
-        error={error}
         showError={showError}
       />
       <View style={styles.buttonContainer}>
-        <AppButton title="Login" onPress={login} />
+        <AppButton title="Login" />
         <AppButton title="Register" color="#D36582" />
       </View>
     </View>

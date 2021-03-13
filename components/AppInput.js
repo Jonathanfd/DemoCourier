@@ -2,7 +2,7 @@ import React from "react";
 import { View, StyleSheet, Text, TextInput } from "react-native";
 import ErrorText from "./ErrorText";
 
-function AppInput({ title, error, showError = false, ...otherProps }) {
+function AppInput({ title, showError = false, ...otherProps }) {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{title}</Text>
@@ -13,7 +13,7 @@ function AppInput({ title, error, showError = false, ...otherProps }) {
           autoCapitalize="none"
           autoCorrect={false}
         />
-        {showError && <ErrorText error={error} />}
+        {showError && <ErrorText />}
       </View>
     </View>
   );

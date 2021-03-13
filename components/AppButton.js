@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import { StyleSheet, Text, TouchableOpacity } from "react-native";
+import { LoginContext } from "../context/AppContext";
 
-function AppButton({ title, color = "#02A9EA", onPress }) {
+function AppButton({ title, color = "#02A9EA" }) {
+  const Login = useContext(LoginContext);
   return (
     <TouchableOpacity
       style={[styles.container, { backgroundColor: color }]}
-      onPress={onPress}
+      onPress={Login}
     >
       <Text style={styles.text}>{title}</Text>
     </TouchableOpacity>
